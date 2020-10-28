@@ -50,4 +50,11 @@ class Page extends MY_Controller
         $this->session->set_flashdata('danger', 'Input Berhasil Dihapus');
         redirect('Page');
     }
+
+    public function detail($id)
+    {
+        $data['input'] = $this->model_input->get_input_by_id($id)->result();
+
+        $this->load->view("detailinput", $data);
+    }
 }
